@@ -3,10 +3,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: wheat;
+    background-color: #f4f6f8; /* fundo neutro */
     font-family: 'Roboto', monospace;
     text-align: center;
-    min-height: calc(100vh - 70px);
+    min-height: 100vh;
 }
 
 .form-imesada{
@@ -14,50 +14,107 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.titulo, .subtitulo{
-    margin: 1vh 0px;
+    background-color: #ffffff; /* card */
+    padding: 2vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .titulo{
+    margin: 1vh 0px;
     font-size: 3vh;
+    color: #2c3e50;
+}
+
+.subtitulo{
+    margin: 1vh 0px;
+    color: #7f8c8d;
 }
 
 .saldo{
     margin: 1vh 0px;
-    font-size:2vh;
+    font-size: 2.2vh;
+    color: #34495e;
 }
 
-.input-saldo{
+.input-saldo, 
+.input-descricao{
+    padding: 0.6vh;
     margin: 1vh 0vh;
-    background-color: #a8a7a3;
+    background-color: #ecf0f1;
     border-radius: 5px;
-    border: 0px none;
+    border: 1px solid #dcdde1;
     font-size: 2vh;
+    color: #2c3e50;
+}
+
+.input-saldo::placeholder,
+.input-descricao::placeholder{
+    color: #95a5a6;
 }
 
 .div-botoes{
     display: flex;
     gap: 10px;
+    margin-top: 1vh;
 }
 
 .botoes{
     font-size: 2vh;
     border-radius: 5px;
-    padding: 0.5vh;
+    padding: 0.6vh 1.2vh;
+    border: none;
+    cursor: pointer;
 }
 
-#credito{
-    background-color: green;
+#botao-credito{
+    background-color: #2ecc71;
     color: white;
 }
 
-#debito{
-    background-color: red;
+#botao-debito{
+    background-color: #e74c3c;
     color: white;
+}
+
+.div-movimentacoes{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 1vh;
+    margin-top: 1vh;
+    width: 100%;
+}
+
+.crédito{
+    border-left: 5px solid green;
+    background-color: #ecfdf3; /* verde bem claro */
+    color: #1e8449;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    padding: 0.6vh;
+    font-size: 2vh;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.débito{
+    border-left: 5px solid red;
+    background-color: #fdecea; /* vermelho bem claro */
+    color: #922b21;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    padding: 0.6vh;
+    font-size: 2vh;
+    border-radius: 4px;
+    width: 100%;
 }
 
 .imagem-porco{
-    width: 15vh;
+    width: 18vh;
 }

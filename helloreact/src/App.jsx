@@ -7,9 +7,9 @@ function App() {
 
   return (
     <div className={'container-app'}>
-      <Header />
-      {/* <Imesada /> */}
-      <ListaProdutos />
+      {/* <Header /> */}
+      {/* <ListaProdutos /> */}
+      <Imesada />
     </div>
   )
 }
