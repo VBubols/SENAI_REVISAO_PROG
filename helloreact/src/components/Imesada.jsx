@@ -1,4 +1,5 @@
 import React from 'react'
+import './Imesada.css'
 import { useState } from 'react';
 
 function Imesada() {
@@ -14,18 +15,28 @@ function Imesada() {
         let valor = parseFloat(inputSaldo)
         setSaldo(saldo - valor)
     }
+
+    function atualizarValor(e){
+        setInputSaldo(e.target.value)
+    }
+
     return (
-        <div>
-            <h2>iMesada</h2>
-            <p>Controlinho Financeiro</p>
-            <p className="saldo">🤑Saldo: R${saldo}</p>
-            <input type="text"
-                value={inputSaldo}
-                onChange={(e) => setInputSaldo(e.target.value)}
-            />
-            <br></br>
-            <button onClick={creditar}>Crédito</button>
-            <button onClick={debitar}>Débito</button>
+        <div className={"container-imesada"}>
+            <div className="form-imesada">
+                <img className={"imagem-porco"} src="./imgs/porquinho.png" alt="porquinho"/>
+                <h2 className={"titulo"}>iMesada</h2>
+                <h3 className={"subtitulo"}>Controlinho Financeiro</h3>
+                <p className={"saldo"}>🤑Saldo: R${saldo}</p>
+                <input type="number"
+                    className={"input-saldo"}
+                    value={inputSaldo}
+                    onChange={atualizarValor}
+                />
+                <div className={"div-botoes"}>
+                    <button id={"credito"} className={"botoes"} onClick={creditar}>Crédito</button>
+                    <button id={"debito"} className={"botoes"} onClick={debitar}>Débito</button>
+                </div>
+            </div>
         </div>
     )
 }
