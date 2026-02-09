@@ -23,18 +23,15 @@
 .titulo{
     margin: 1vh 0px;
     font-size: 3vh;
-    color: #2c3e50;
 }
 
 .subtitulo{
     margin: 1vh 0px;
-    color: #7f8c8d;
 }
 
 .saldo{
     margin: 1vh 0px;
     font-size: 2.2vh;
-    color: #34495e;
 }
 
 .input-saldo, 
@@ -117,4 +114,48 @@
 
 .imagem-porco{
     width: 18vh;
+}
+
+.container-imesada.claro {
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+.container-imesada.escuro {
+    background-color: #0f172a;
+    color: #e5e7eb;
+}
+
+/* cartões / form */
+.container-imesada.claro .form-imesada {
+    background: #ffffff;
+}
+
+.container-imesada.escuro .form-imesada {
+    background: #020617;
+}
+
+/* inputs */
+.container-imesada.escuro input {
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+}
+
+/* botão do tema */
+.botao-tema {
+    margin: 10px 0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.container-imesada.escuro .débito{
+    color: #fdecea;
+    background-color: #922b21;
+}
+
+.container-imesada.escuro .crédito{
+    color: #ecfdf3;
+    background-color: #1e8449;
 }

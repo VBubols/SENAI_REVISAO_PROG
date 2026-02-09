@@ -5,43 +5,51 @@ import { useState } from 'react';
 function Imesada() {
 
     const [saldo, setSaldo] = useState(0)
-    const [inputSaldo, setInputSaldo] = useState()
+    const [inputSaldo, setInputSaldo] = useState('')
     const [inputDescricao, setInputDescricao] = useState('')
     const [movimentacoes, setMovimentacoes] = useState([])
+    const [tema, setTema] = useState('claro')
 
-    function creditar(){
-        let valor = Number(inputSaldo)
-        let descricao = inputDescricao
-        setSaldo(saldo + valor)
-
-        const movimentacao = {
-            tipo: 'crédito',
-            valor: valor,
-            id: Date.now(),
-            descricao: descricao
-        }
-
-        setMovimentacoes([movimentacao, ...movimentacoes])
+    function alternarTema(){
+        setTema(tema === 'claro' ? 'escuro' : 'claro')
     }
 
-    function debitar(){
-        let valor = Number(inputSaldo)
-        let descricao = inputDescricao
-        setSaldo(saldo - valor)
+    function movimentar(tipo){
+
+        if(inputSaldo === '' || Number.isNaN(inputSaldo)){
+            alert('Digite um valor válido no campo Valor')
+            return
+        } 
+        if(inputDescricao === ''){
+            alert('Digite o nome da movimentação')
+            return
+        }
+
+        if(tipo == 'crédito'){
+            setSaldo(saldo + Number(inputSaldo))
+        } else {
+            setSaldo(saldo - Number(inputSaldo))
+        }
 
         const movimentacao = {
-            tipo: 'débito',
-            valor: valor,
+            tipo: tipo,
+            valor: inputSaldo,
             id: Date.now(),
-            descricao: descricao
+            descricao: inputDescricao
         }
 
         setMovimentacoes([movimentacao, ...movimentacoes])
+
     }
 
     return (
-        <div className={"container-imesada"}>
+        <div className={`container-imesada ${tema}`}>
             <div className="form-imesada">
+
+                <button className={"botao-tema"} onClick={alternarTema}>
+                    {tema === 'claro' ? '🌙 Tema Escuro' : '☀ Tema Claro'}
+                </button> 
+
                 <img className={"imagem-porco"} src="./imgs/porquinho.png" alt="porquinho"/>
                 <h2 className={"titulo"}>iMesada</h2>
                 <h3 className={"subtitulo"}>Controlinho Financeiro</h3>
@@ -62,8 +70,8 @@ function Imesada() {
                 />
 
                 <div className={"div-botoes"}>
-                    <button id={"botao-credito"} className={"botoes"} onClick={creditar}>Crédito</button>
-                    <button id={"botao-debito"} className={"botoes"} onClick={debitar}>Débito</button>
+                    <button id={"botao-credito"} className={"botoes"} onClick={() => movimentar('crédito')}>Crédito</button>
+                    <button id={"botao-debito"} className={"botoes"} onClick={() => movimentar('débito')}>Débito</button>
                 </div>
 
                 <div className="div-movimentacoes">
